@@ -35,17 +35,17 @@
     --radius: 0.25rem;
 
     /* Custom science palette */
-    --gold: #d4a843;
-    --gold-light: #e8c870;
-    --navy: #0c1420;
-    --navy-mid: #111b2e;
-    --navy-light: #162038;
-    --teal: #2ab8c8;
-    --teal-dim: #1a7a87;
-    --text-primary: #e8edf5;
-    --text-secondary: #8a9bb5;
-    --text-dim: #4a5a72;
-    --grid-line: rgba(42, 184, 200, 0.08);
+    --gold: #b8860b;
+    --gold-light: #d4a843;
+    --navy: #ffffff;
+    --navy-mid: #f4f6fa;
+    --navy-light: #e8edf5;
+    --teal: #1a7a87;
+    --teal-dim: #2ab8c8;
+    --text-primary: #0f1a2e;
+    --text-secondary: #3a4a62;
+    --text-dim: #8a9bb5;
+    --grid-line: rgba(42, 100, 150, 0.06);
   }
 }
 

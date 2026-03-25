@@ -80,7 +80,7 @@ function CircadianClock() {
           );
         })()}
 
-        <circle cx={cx} cy={cy} r={6} fill="#111B2E" stroke="#D4A843" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r={6} fill="#ffffff" stroke="#b8860b" strokeWidth="1.5" />
 
         {[{ h: 6, txt: "06" }, { h: 12, txt: "12" }, { h: 18, txt: "18" }, { h: 0, txt: "00" }].map(({ h, txt }) => {
           const a = (h / 24) * Math.PI * 2 - Math.PI / 2;
@@ -107,16 +107,16 @@ function SineWaveChart() {
   const path3 = sineWavePath(width * 2, height, 15, 2, Math.PI * 0.8);
 
   return (
-    <div className="overflow-hidden rounded" style={{ background: "#111B2E", border: "1px solid rgba(42,184,200,0.1)" }}>
+    <div className="overflow-hidden rounded" style={{ background: "#f4f6fa", border: "1px solid rgba(26,122,135,0.15)" }}>
       <div className="px-4 pt-4 pb-1 flex gap-6 flex-wrap">
         {[
-          { color: "#D4A843", label: "Кортизол" },
-          { color: "#2AB8C8", label: "Температура тела" },
-          { color: "#8A6BC0", label: "Мелатонин" },
+          { color: "#b8860b", label: "Кортизол" },
+          { color: "#1a7a87", label: "Температура тела" },
+          { color: "#7a5ab0", label: "Мелатонин" },
         ].map(({ color, label }) => (
           <div key={label} className="flex items-center gap-2">
             <div className="w-6 h-px" style={{ background: color }} />
-            <span style={{ color: "#8A9BB5", fontSize: "0.7rem", fontFamily: "IBM Plex Mono, monospace" }}>{label}</span>
+            <span style={{ color: "#3a4a62", fontSize: "0.7rem", fontFamily: "IBM Plex Mono, monospace" }}>{label}</span>
           </div>
         ))}
       </div>
@@ -126,9 +126,9 @@ function SineWaveChart() {
             stroke="rgba(42,184,200,0.08)" strokeWidth="1" />
         ))}
         <g className="wave-animate">
-          <path d={path1} fill="none" stroke="#D4A843" strokeWidth="2" opacity="0.8" />
-          <path d={path2} fill="none" stroke="#2AB8C8" strokeWidth="1.5" opacity="0.7" />
-          <path d={path3} fill="none" stroke="#8A6BC0" strokeWidth="1.5" opacity="0.6" />
+          <path d={path1} fill="none" stroke="#b8860b" strokeWidth="2" opacity="0.8" />
+          <path d={path2} fill="none" stroke="#1a7a87" strokeWidth="1.5" opacity="0.7" />
+          <path d={path3} fill="none" stroke="#7a5ab0" strokeWidth="1.5" opacity="0.6" />
         </g>
       </svg>
       <div className="flex justify-between px-4 pb-3">
@@ -142,12 +142,12 @@ function SineWaveChart() {
 
 function HealthImpactBars() {
   const data = [
-    { label: "Иммунитет", value: 87, color: "#2AB8C8" },
-    { label: "Метаболизм", value: 74, color: "#D4A843" },
-    { label: "Когнитивные функции", value: 91, color: "#8A6BC0" },
-    { label: "Сердечно-сосудистая система", value: 68, color: "#E07070" },
-    { label: "Гормональный баланс", value: 95, color: "#6AB87A" },
-    { label: "Психическое здоровье", value: 79, color: "#2AB8C8" },
+    { label: "Иммунитет", value: 87, color: "#1a7a87" },
+    { label: "Метаболизм", value: 74, color: "#b8860b" },
+    { label: "Когнитивные функции", value: 91, color: "#7a5ab0" },
+    { label: "Сердечно-сосудистая система", value: 68, color: "#c05050" },
+    { label: "Гормональный баланс", value: 95, color: "#4a9a5a" },
+    { label: "Психическое здоровье", value: 79, color: "#1a7a87" },
   ];
 
   const [visible, setVisible] = useState(false);
@@ -166,10 +166,10 @@ function HealthImpactBars() {
       {data.map(({ label, value, color }) => (
         <div key={label}>
           <div className="flex justify-between mb-1">
-            <span style={{ color: "#8A9BB5", fontSize: "0.8rem" }}>{label}</span>
+            <span style={{ color: "#3a4a62", fontSize: "0.8rem" }}>{label}</span>
             <span style={{ color, fontSize: "0.75rem", fontFamily: "IBM Plex Mono, monospace" }}>{value}%</span>
           </div>
-          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#162038" }}>
+          <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "#dde3ee" }}>
             <div
               className="h-full rounded-full transition-all duration-1000 ease-out"
               style={{
@@ -187,13 +187,13 @@ function HealthImpactBars() {
 
 function StatCard({ value, unit, label, sublabel }: { value: string; unit: string; label: string; sublabel: string }) {
   return (
-    <div className="p-5 rounded" style={{ background: "#111B2E", border: "1px solid rgba(42,184,200,0.1)" }}>
+    <div className="p-5 rounded" style={{ background: "#f4f6fa", border: "1px solid rgba(26,122,135,0.15)" }}>
       <div className="flex items-baseline gap-1 mb-1">
-        <span style={{ fontFamily: "Cormorant, serif", fontSize: "2.8rem", fontWeight: 300, color: "#D4A843", lineHeight: 1 }}>{value}</span>
-        <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: "0.75rem", color: "#2AB8C8", marginBottom: 4 }}>{unit}</span>
+        <span style={{ fontFamily: "Cormorant, serif", fontSize: "2.8rem", fontWeight: 300, color: "#b8860b", lineHeight: 1 }}>{value}</span>
+        <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: "0.75rem", color: "#1a7a87", marginBottom: 4 }}>{unit}</span>
       </div>
-      <div style={{ color: "#E8EDF5", fontSize: "0.85rem", fontWeight: 500, marginBottom: 2 }}>{label}</div>
-      <div style={{ color: "#4A5A72", fontSize: "0.72rem" }}>{sublabel}</div>
+      <div style={{ color: "#0f1a2e", fontSize: "0.85rem", fontWeight: 500, marginBottom: 2 }}>{label}</div>
+      <div style={{ color: "#8a9bb5", fontSize: "0.72rem" }}>{sublabel}</div>
     </div>
   );
 }
@@ -263,21 +263,21 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen grid-bg" style={{ background: "#0C1420" }}>
+    <div className="min-h-screen grid-bg" style={{ background: "#ffffff" }}>
       {/* Navigation */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
-        background: "rgba(12, 20, 32, 0.92)",
+        background: "rgba(255,255,255,0.93)",
         backdropFilter: "blur(12px)",
-        borderBottom: "1px solid rgba(42,184,200,0.08)"
+        borderBottom: "1px solid rgba(26,122,135,0.12)"
       }}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-5 h-5 relative flex items-center justify-center">
-              <div className="w-full h-full rounded-full border" style={{ borderColor: "#D4A843", opacity: 0.8 }} />
-              <div className="absolute w-2 h-2 rounded-full" style={{ background: "#D4A843" }} />
+              <div className="w-full h-full rounded-full border" style={{ borderColor: "#b8860b", opacity: 0.8 }} />
+              <div className="absolute w-2 h-2 rounded-full" style={{ background: "#b8860b" }} />
             </div>
-            <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: "0.7rem", color: "#4A5A72", letterSpacing: "0.1em" }}>
+            <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: "0.7rem", color: "#8a9bb5", letterSpacing: "0.1em" }}>
               CHRONOBIOLOGY
             </span>
           </div>
@@ -285,7 +285,7 @@ export default function Index() {
             {NAV_SECTIONS.map(({ id, label }) => (
               <button key={id} onClick={() => scrollTo(id)}
                 className="nav-link"
-                style={activeSection === id ? { color: "#D4A843" } : {}}>
+                style={activeSection === id ? { color: "#b8860b" } : {}}>
                 {label}
               </button>
             ))}
@@ -304,15 +304,15 @@ export default function Index() {
               <h1 className="gold-glow animate-fade-up opacity-0"
                 style={{
                   fontFamily: "Cormorant, serif", fontSize: "clamp(3rem, 6vw, 5.5rem)",
-                  fontWeight: 300, lineHeight: 1.05, color: "#E8EDF5",
+                  fontWeight: 300, lineHeight: 1.05, color: "#0f1a2e",
                   marginBottom: "1.5rem", animationDelay: "0.2s"
                 }}>
                 Биологические<br />
-                <em style={{ color: "#D4A843", fontStyle: "italic" }}>часы</em>{" "}
+                <em style={{ color: "#b8860b", fontStyle: "italic" }}>часы</em>{" "}
                 человека
               </h1>
               <p className="animate-fade-up opacity-0"
-                style={{ color: "#8A9BB5", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: 480, marginBottom: "2rem", fontWeight: 300, animationDelay: "0.3s" }}>
+                style={{ color: "#3a4a62", fontSize: "1.05rem", lineHeight: 1.75, maxWidth: 480, marginBottom: "2rem", fontWeight: 300, animationDelay: "0.3s" }}>
                 Внутренний хронометр организма, управляющий сном, обменом веществ, иммунитетом
                 и когнитивными функциями — с точностью до нескольких минут в сутки.
               </p>
@@ -320,7 +320,7 @@ export default function Index() {
                 {["~24 ч. период", "SCN гипоталамуса", "400+ генов", "Нобелевская 2017"].map((tag) => (
                   <span key={tag} style={{
                     fontFamily: "IBM Plex Mono, monospace", fontSize: "0.68rem",
-                    color: "#2AB8C8", border: "1px solid rgba(42,184,200,0.25)",
+                    color: "#1a7a87", border: "1px solid rgba(26,122,135,0.3)",
                     padding: "4px 10px", borderRadius: 2, letterSpacing: "0.05em"
                   }}>{tag}</span>
                 ))}
@@ -344,19 +344,19 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-14">
             <div className="section-label mb-4">Раздел 02 · Молекулярные механизмы</div>
-            <h2 style={{ fontFamily: "Cormorant, serif", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300, color: "#E8EDF5" }}>
-              Как работают<br /><em style={{ color: "#D4A843" }}>циркадные ритмы</em>
+            <h2 style={{ fontFamily: "Cormorant, serif", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300, color: "#0f1a2e" }}>
+              Как работают<br /><em style={{ color: "#b8860b" }}>циркадные ритмы</em>
             </h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-5 mb-14">
             {[
               {
-                icon: "Brain", title: "SCN — главный осциллятор", color: "#D4A843",
+                icon: "Brain", title: "SCN — главный осциллятор", color: "#b8860b",
                 text: "Супрахиазматическое ядро гипоталамуса содержит ~20 000 нейронов, синхронизированных световыми сигналами через ретиногипоталамический тракт."
               },
               {
-                icon: "Dna", title: "Молекулярный механизм", color: "#2AB8C8",
+                icon: "Dna", title: "Молекулярный механизм", color: "#1a7a87",
                 text: "Транскрипционно-трансляционная петля обратной связи: гены CLOCK/BMAL1 активируют PER и CRY, которые блокируют собственную транскрипцию за ~24 часа."
               },
               {
@@ -369,22 +369,22 @@ export default function Index() {
                   style={{ background: `${color}18`, border: `1px solid ${color}30` }}>
                   <Icon name={icon} size={18} style={{ color }} />
                 </div>
-                <h3 style={{ fontFamily: "Cormorant, serif", fontSize: "1.3rem", fontWeight: 600, color: "#E8EDF5", marginBottom: 8 }}>{title}</h3>
-                <p style={{ color: "#8A9BB5", fontSize: "0.85rem", lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
+                <h3 style={{ fontFamily: "Cormorant, serif", fontSize: "1.3rem", fontWeight: 600, color: "#0f1a2e", marginBottom: 8 }}>{title}</h3>
+                <p style={{ color: "#3a4a62", fontSize: "0.85rem", lineHeight: 1.7, fontWeight: 300 }}>{text}</p>
               </div>
             ))}
           </div>
 
-          <div className="rounded p-8" style={{ background: "#111B2E", border: "1px solid rgba(42,184,200,0.1)" }}>
+          <div className="rounded p-8" style={{ background: "#f4f6fa", border: "1px solid rgba(26,122,135,0.15)" }}>
             <div className="section-label mb-6">Петля обратной связи TTFL</div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0 flex-wrap">
               {[
-                { label: "CLOCK + BMAL1", sub: "Активаторы", color: "#D4A843", icon: "Zap" },
-                { label: "→", color: "#4A5A72", icon: null },
-                { label: "PER + CRY", sub: "Репрессоры", color: "#2AB8C8", icon: "Moon" },
-                { label: "→", color: "#4A5A72", icon: null },
-                { label: "Блок транскрипции", sub: "~8–12 ч.", color: "#8A6BC0", icon: "Lock" },
-                { label: "↺", sub: "24 ч.", color: "#D4A843", icon: null },
+                { label: "CLOCK + BMAL1", sub: "Активаторы", color: "#b8860b", icon: "Zap" },
+                { label: "→", color: "#8a9bb5", icon: null },
+                { label: "PER + CRY", sub: "Репрессоры", color: "#1a7a87", icon: "Moon" },
+                { label: "→", color: "#8a9bb5", icon: null },
+                { label: "Блок транскрипции", sub: "~8–12 ч.", color: "#7a5ab0", icon: "Lock" },
+                { label: "↺", sub: "24 ч.", color: "#b8860b", icon: null },
               ].map((step, i) => (
                 step.icon ? (
                   <div key={i} className="flex flex-col items-center gap-2 px-4">
@@ -392,8 +392,8 @@ export default function Index() {
                       style={{ background: `${step.color}15`, border: `1px solid ${step.color}30` }}>
                       <Icon name={step.icon} size={18} style={{ color: step.color }} />
                     </div>
-                    <span style={{ fontSize: "0.75rem", color: "#E8EDF5", textAlign: "center" }}>{step.label}</span>
-                    <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: "0.62rem", color: "#4A5A72" }}>{step.sub}</span>
+                    <span style={{ fontSize: "0.75rem", color: "#0f1a2e", textAlign: "center" }}>{step.label}</span>
+                    <span style={{ fontFamily: "IBM Plex Mono, monospace", fontSize: "0.62rem", color: "#8a9bb5" }}>{step.sub}</span>
                   </div>
                 ) : (
                   <div key={i} style={{ fontSize: step.label === "↺" ? "2rem" : "1.5rem", color: step.color, fontWeight: 300, padding: "0 8px" }}>
@@ -413,8 +413,8 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="mb-14">
             <div className="section-label mb-4">Раздел 03 · Клинические данные</div>
-            <h2 style={{ fontFamily: "Cormorant, serif", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300, color: "#E8EDF5" }}>
-              Влияние на здоровье<br /><em style={{ color: "#D4A843" }}>и самочувствие</em>
+            <h2 style={{ fontFamily: "Cormorant, serif", fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 300, color: "#0f1a2e" }}>
+              Влияние на здоровье<br /><em style={{ color: "#b8860b" }}>и самочувствие</em>
             </h2>
           </div>
 
@@ -426,26 +426,26 @@ export default function Index() {
             <div className="space-y-4">
               {[
                 {
-                  title: "Нарушение ритма и онкология", icon: "AlertTriangle", color: "#E07070",
+                  title: "Нарушение ритма и онкология", icon: "AlertTriangle", color: "#c05050",
                   text: "Работники ночных смен имеют на 40–60% повышенный риск рака молочной железы. ВОЗ классифицировала циркадные нарушения как вероятный канцероген (2А)."
                 },
                 {
-                  title: "Хронотип и академическая успеваемость", icon: "BookOpen", color: "#2AB8C8",
+                  title: "Хронотип и академическая успеваемость", icon: "BookOpen", color: "#1a7a87",
                   text: "«Совы» в системе раннего начала занятий показывают результаты на 15–20% ниже потенциала. Сдвиг расписания на 1 час повышает успеваемость на 6–9%."
                 },
                 {
-                  title: "Хронофармакология", icon: "Pill", color: "#D4A843",
+                  title: "Хронофармакология", icon: "Pill", color: "#b8860b",
                   text: "Время приёма ряда препаратов (статины, химиотерапия, аспирин) влияет на эффективность на 50–200%. Новая область — хронотерапия."
                 },
               ].map(({ title, text, icon, color }) => (
-                <div key={title} className="p-5 rounded flex gap-4" style={{ background: "#111B2E", border: "1px solid rgba(42,184,200,0.1)" }}>
+                <div key={title} className="p-5 rounded flex gap-4" style={{ background: "#f4f6fa", border: "1px solid rgba(26,122,135,0.12)" }}>
                   <div className="w-8 h-8 flex-shrink-0 rounded flex items-center justify-center mt-0.5"
                     style={{ background: `${color}15`, border: `1px solid ${color}25` }}>
                     <Icon name={icon} size={14} style={{ color }} />
                   </div>
                   <div>
-                    <h3 style={{ fontFamily: "Cormorant, serif", fontSize: "1.1rem", fontWeight: 600, color: "#E8EDF5", marginBottom: 4 }}>{title}</h3>
-                    <p style={{ color: "#8A9BB5", fontSize: "0.82rem", lineHeight: 1.65, fontWeight: 300 }}>{text}</p>
+                    <h3 style={{ fontFamily: "Cormorant, serif", fontSize: "1.1rem", fontWeight: 600, color: "#0f1a2e", marginBottom: 4 }}>{title}</h3>
+                    <p style={{ color: "#3a4a62", fontSize: "0.82rem", lineHeight: 1.65, fontWeight: 300 }}>{text}</p>
                   </div>
                 </div>
               ))}
